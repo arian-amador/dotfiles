@@ -61,3 +61,9 @@ pathadd() {
     fi
 }
 pathadd "/home/${USER}/bin/"
+
+# YoutubeDL Playlist Helper
+# Options: continue partial, ignore errors, sleep 5-15sec between, a lot of retrys, and Plex compatible naming
+ytpldl() {
+    /usr/bin/youtube-dl -c -i --sleep-interval 5 --max-sleep-interval 15 -R 1000 -o "%(playlist_title)s-s01e%(playlist_index)s-%(title)s.%(ext)s" "$1"
+}
