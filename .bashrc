@@ -61,9 +61,19 @@ pathadd() {
     fi
 }
 pathadd "/home/${USER}/bin/"
+pathadd "~/.local/bin"
+
+# rbenv
+pathadd "$HOME/.rbenv/bin"
+eval "$(rbenv init -)"
 
 # YoutubeDL Playlist Helper
 # Options: continue partial, ignore errors, sleep 5-15sec between, a lot of retrys, and Plex compatible naming
 ytpldl() {
     /usr/bin/youtube-dl -c -i --sleep-interval 5 --max-sleep-interval 15 -R 1000 -o "%(playlist_title)s-s01e%(playlist_index)s-%(title)s.%(ext)s" "$1"
 }
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
